@@ -22,12 +22,12 @@ Enterprise linux(Tested on Oracle Enterprise Linux 7)
 
 2. Re-name file docker-[service-name]@[container-name].service
 
-    [service-name]: my recomendation use container name
+    **[service-name]**: i suggest use container name but you can use anything.
 
-    [container-name]: represent container name assgined at created time
+    **[container-name]**: represent container name assigned at created time.
 
 ```
-  docker-mariadb-test@mariadb-test.service
+  mv docker-[service-name]@[container-name].service docker-mariadb-test@mariadb-test.service
 ```
 3. Copy file to /etc/systemd/system directory
 
