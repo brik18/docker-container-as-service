@@ -1,0 +1,16 @@
+#!/bin/bash
+## define service and dependencies
+[Unit]
+Description=Service script for start stop container on boot or shutdown
+After=network.service docker.service
+Wants=docker.service
+
+[Service]
+Type=simple
+# usgin docker command to start container and attach STDOUT/STDERR to daemon
+ExecStart=/bin/sh -c '/usr/bin/docker start -a %i'
+Restart=on-failure
+# stop container
+ExecStop=/bin/sh -c '/usr/bin/docker stop %i > /dev/null 2>&1 || :'
+[Install]
+WantedBy=multi-user.target
